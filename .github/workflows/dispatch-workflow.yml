@@ -3,23 +3,16 @@ name: Dispatch workflow
 on:
   issues:
     types:
-      - opened
-      - edited
       - reopened
+      - closed
   pull_request_target:
     types:
-      - opened
-      - edited
       - reopened
+      - closed
       # Makes sure we always add status check for PRs. Useful only if
       # this action is required to pass before merging. Can be removed
       # otherwise.
       - synchronize
-
-  # Schedule a daily check. Useful if you reference cross-repository
-  # issues or pull requests. Can be removed otherwise.
-  schedule:
-    - cron: '0 0 * * *'
 
 jobs:
   check:
